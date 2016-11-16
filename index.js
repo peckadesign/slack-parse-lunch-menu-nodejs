@@ -49,17 +49,17 @@ switch (ops.restaurant) {
 
             switch (date) {
                 case 1:
-                    return text.substring(from = text.indexOf('Pondělí'), text.indexOf('Úterý',from));
+                    return text.substring(from = text.indexOf('pondělí'), text.indexOf('úterý',from));
                 case 2:
-                    return text.substring(from = text.indexOf('Úterý'), text.indexOf('Středa',from));
+                    return text.substring(from = text.indexOf('úterý'), text.indexOf('středa',from));
                 case 3:
-                    return text.substring(from = text.indexOf('Středa'), text.indexOf('Čtvrtek',from));
+                    return text.substring(from = text.indexOf('středa'), text.indexOf('čtvrtek',from));
                 case 4:
-                    return text.substring(from = text.indexOf('Čtvrtek'), text.indexOf('Pátek',from));
+                    return text.substring(from = text.indexOf('čtvrtek'), text.indexOf('pátek',from));
                 case 5:
-                    return text.substring(text.indexOf('Pátek'));
+                    return text.substring(from = text.indexOf('pátek'), text.indexOf('Restaurace Klub cestovatelů, Veleslavínova 14, Brno, Královo pole',from));
                 default:
-                    return "Dneska se nevaří... objednej #damejidlo nebo #pizza";
+                    return "Dneska se nevaří";
             }
         };
         break;
