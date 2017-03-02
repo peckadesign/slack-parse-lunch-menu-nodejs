@@ -64,6 +64,54 @@ switch (ops.restaurant) {
         };
         break;
 
+	case 'borgeska':
+		url = 'http://www.restauraceborgeska.cz/';
+		parse = function ($) {
+			var date = moment().day();
+			var master = $('#proweb-body');
+
+			var text = null;
+			master.each(function () {
+				var $thisMaster = $(this);
+				$thisMaster.html($thisMaster.html().replace(/\r\n|\t|\n|[ ]{2}/g, ''));
+
+				var menuMaster = master.find('table tbody');
+				menuMaster.find('tr').each(function () {
+					var $thisMaster = $(this);
+					$thisMaster.html(' ' + $thisMaster.html() + '\n\n');
+				});
+				master = $thisMaster.text();
+
+				switch (date) {
+					case 1:
+						text = master.substring(from = master.indexOf('PO:'), master.indexOf('ÚT:', from));
+						break;
+					case 2:
+						text = master.substring(from = master.indexOf('ÚT:'), master.indexOf('ST:', from));
+						break;
+					case 3:
+						text = master.substring(from = master.indexOf('ST:'), master.indexOf('ČT:', from));
+						break;
+					case 4:
+						text = master.substring(from = master.indexOf('ČT:'), master.indexOf('PÁ:', from));
+						break;
+					case 5:
+						text = master.substring(from = master.indexOf('PÁ:'), master.indexOf('©', from));
+						break;
+					default:
+						text = "Dneska se nevaří";
+						break;
+				}
+
+				text = text.replace(/g/g, 'g ');
+			});
+
+			return text;
+
+
+		};
+		break;
+
     case 'ocean':
         url = 'http://www.ocean48.cz/bistro/nabidka';
         parse = function ($) {
