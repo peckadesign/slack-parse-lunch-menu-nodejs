@@ -64,6 +64,30 @@ switch (ops.restaurant) {
         };
         break;
 
+	case 'napurkynce':
+		url = 'http://http://www.napurkynce.cz/denni-menu/';
+		parse = function ($) {
+			var date = moment().day();
+			var text = $('#content').text();
+			var from = null;
+
+			switch (date) {
+				case 1:
+					return text.substring(from = text.indexOf('PO'), text.indexOf('ÚT',from));
+				case 2:
+					return text.substring(from = text.indexOf('ÚT'), text.indexOf('ST',from));
+				case 3:
+					return text.substring(from = text.indexOf('ST'), text.indexOf('ČT',from));
+				case 4:
+					return text.substring(from = text.indexOf('ČT'), text.indexOf('PÁ',from));
+				case 5:
+					return text.substring(from = text.indexOf('PÁ'), text.indexOf('SO',from));
+				default:
+					return "Pizza time";
+			}
+		};
+		break;
+
     case 'ocean':
         url = 'http://www.ocean48.cz/bistro/nabidka';
         parse = function ($) {
