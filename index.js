@@ -73,15 +73,15 @@ switch (ops.restaurant) {
 
 			switch (date) {
 				case 1:
-					return text.substring(from = text.indexOf('PO'), text.indexOf('ÚT',from));
+					return text.substring(from = text.indexOf('PO'), text.indexOf('ÚT',from)).replace(/([a-z]+\){1}\s{1}/g,'\n$1');
 				case 2:
-					return text.substring(from = text.indexOf('ÚT'), text.indexOf('ST',from));
+					return text.substring(from = text.indexOf('ÚT'), text.indexOf('ST',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 3:
-					return text.substring(from = text.indexOf('ST'), text.indexOf('ČT',from));
+					return text.substring(from = text.indexOf('ST'), text.indexOf('ČT',from)).replace(/([a-z]+\){1}\s{1}/g,'\n$1');
 				case 4:
-					return text.substring(from = text.indexOf('ČT'), text.indexOf('PÁ',from));
+					return text.substring(from = text.indexOf('ČT'), text.indexOf('PÁ',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 5:
-					return text.substring(from = text.indexOf('PÁ'), text.indexOf('SO',from));
+					return text.substring(from = text.indexOf('PÁ'), text.indexOf('SO',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				default:
 					return "Pizza time";
 			}
