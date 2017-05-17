@@ -65,7 +65,7 @@ switch (ops.restaurant) {
         break;
 
 	case 'napurkynce':
-		url = 'http://http://www.napurkynce.cz/denni-menu/';
+		url = 'http://www.napurkynce.cz/denni-menu/';
 		parse = function ($) {
 			var date = moment().day();
 			var text = $('#content').text();
