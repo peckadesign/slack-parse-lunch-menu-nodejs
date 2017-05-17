@@ -73,11 +73,11 @@ switch (ops.restaurant) {
 
 			switch (date) {
 				case 1:
-					return text.substring(from = text.indexOf('PO'), text.indexOf('ÚT',from)).replace(/([a-z]+\){1}\s{1}/g,'\n$1');
+					return text.substring(from = text.indexOf('PO'), text.indexOf('ÚT',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 2:
 					return text.substring(from = text.indexOf('ÚT'), text.indexOf('ST',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 3:
-					return text.substring(from = text.indexOf('ST'), text.indexOf('ČT',from)).replace(/([a-z]+\){1}\s{1}/g,'\n$1');
+					return text.substring(from = text.indexOf('ST'), text.indexOf('ČT',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 4:
 					return text.substring(from = text.indexOf('ČT'), text.indexOf('PÁ',from)).replace(/([a-z]+\){1}\s{1})/g,'\n$1');
 				case 5:
