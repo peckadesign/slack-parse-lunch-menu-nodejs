@@ -41,7 +41,7 @@ switch (ops.restaurant) {
         break;
 
     case 'cestovatele':
-        url = 'http://www.hedvabnastezka.cz/klub-cestovatelu-brno/poledni-menu-2/';
+        url = 'https://www.hedvabnastezka.cz/klub-cestovatelu-brno/poledni-menu-2/';
         parse = function ($) {
             var date = moment().day();
             var text = $('.article-content').text();
@@ -49,15 +49,15 @@ switch (ops.restaurant) {
 
             switch (date) {
                 case 1:
-                    return text.substring(from = text.indexOf('pondělí'), text.indexOf('úterý',from));
+                    return text.substring(from = text.indexOf('pondělí'), text.indexOf('úterý',from)).trim();
                 case 2:
-                    return text.substring(from = text.indexOf('úterý'), text.indexOf('středa',from));
+                    return text.substring(from = text.indexOf('úterý'), text.indexOf('středa',from)).trim();
                 case 3:
-                    return text.substring(from = text.indexOf('středa'), text.indexOf('čtvrtek',from));
+                    return text.substring(from = text.indexOf('středa'), text.indexOf('čtvrtek',from)).trim();
                 case 4:
-                    return text.substring(from = text.indexOf('čtvrtek'), text.indexOf('pátek',from));
+                    return text.substring(from = text.indexOf('čtvrtek'), text.indexOf('pátek',from)).trim();
                 case 5:
-                    return text.substring(from = text.indexOf('pátek'), text.indexOf('Restaurace Klub cestovatelů, Veleslavínova 14, Brno, Královo pole',from));
+                    return text.substring(from = text.indexOf('pátek'), text.indexOf('Restaurace Klub cestovatelů, Veleslavínova 14, Brno, Královo pole',from)).trim();
                 default:
                     return "Dneska se nevaří";
             }
