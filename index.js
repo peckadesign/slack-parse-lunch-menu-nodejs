@@ -46,21 +46,29 @@ switch (ops.restaurant) {
             var date = moment().day();
             var text = $('.article-content').text();
             var from = null;
+            var dailyMenu = null;
 
             switch (date) {
                 case 1:
-                    return text.substring(from = text.indexOf('pondělí'), text.indexOf('úterý',from)).trim();
+                    dailyMenu = text.substring(from = text.indexOf('Pondělí'), text.indexOf('Úterý',from)).trim();
+                    break;
                 case 2:
-                    return text.substring(from = text.indexOf('úterý'), text.indexOf('středa',from)).trim();
+					dailyMenu = text.substring(from = text.indexOf('Úterý'), text.indexOf('Středa',from)).trim();
+					break;
                 case 3:
-                    return text.substring(from = text.indexOf('středa'), text.indexOf('čtvrtek',from)).trim();
+					dailyMenu = text.substring(from = text.indexOf('Středa'), text.indexOf('Čtvrtek',from)).trim();
+					break;
                 case 4:
-                    return text.substring(from = text.indexOf('čtvrtek'), text.indexOf('pátek',from)).trim();
+					dailyMenu = text.substring(from = text.indexOf('Čtvrtek'), text.indexOf('Pátek',from)).trim();
+					break;
                 case 5:
-                    return text.substring(from = text.indexOf('pátek'), text.indexOf('Restaurace Klub cestovatelů, Veleslavínova 14, Brno, Královo pole',from)).trim();
+					dailyMenu = text.substring(from = text.indexOf('Pátek'), text.indexOf('Restaurace',from)).trim();
+					break;
                 default:
                     return "Dneska se nevaří";
             }
+
+            return dailyMenu.substring(0, dailyMenu.indexOf('1.')).trim() + "\n\n1." + dailyMenu.substring(dailyMenu.indexOf('1.') + 2, dailyMenu.indexOf('2.')).trim() + "\n2." + dailyMenu.substring(dailyMenu.indexOf('2.') + 2, dailyMenu.indexOf('3.')).trim() + "\n3." + dailyMenu.substring(dailyMenu.indexOf('3.') + 2).trim();
         };
         break;
 
