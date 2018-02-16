@@ -68,7 +68,7 @@ switch (ops.restaurant) {
                     return "Dneska se nevaří";
             }
 
-            return dailyMenu.substring(0, dailyMenu.indexOf('1.')).trim() + "\n\n1." + dailyMenu.substring(dailyMenu.indexOf('1.') + 2, dailyMenu.indexOf('2.')).trim() + "\n2." + dailyMenu.substring(dailyMenu.indexOf('2.') + 2, dailyMenu.indexOf('3.')).trim() + "\n3." + dailyMenu.substring(dailyMenu.indexOf('3.') + 2).trim();
+            return dailyMenu.substring(0, dailyMenu.indexOf('1.')).trim() + "\n\n1. " + dailyMenu.substring(dailyMenu.indexOf('1.') + 2, dailyMenu.indexOf('2.')).trim() + "\n2. " + dailyMenu.substring(dailyMenu.indexOf('2.') + 2, dailyMenu.indexOf('3.')).trim() + "\n3. " + dailyMenu.substring(dailyMenu.indexOf('3.') + 2).trim();
         };
         break;
 
