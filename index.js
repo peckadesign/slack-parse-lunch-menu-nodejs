@@ -45,30 +45,31 @@ switch (ops.restaurant) {
         parse = function ($) {
             var date = moment().day();
             var text = $('.article-content').text();
+            var smallText = $('.article-content').text().toLowerCase();
             var from = null;
             var dailyMenu = null;
 
             switch (date) {
                 case 1:
-                    dailyMenu = text.substring(from = text.indexOf('Pondělí'), text.indexOf('Úterý',from)).trim();
+                    dailyMenu = text.substring(from = smallText.indexOf('pondělí'), smallText.indexOf('úterý',from)).trim();
                     break;
                 case 2:
-					dailyMenu = text.substring(from = text.indexOf('Úterý'), text.indexOf('Středa',from)).trim();
+					dailyMenu = text.substring(from = smallText.indexOf('úterý'), smallText.indexOf('středa',from)).trim();
 					break;
                 case 3:
-					dailyMenu = text.substring(from = text.indexOf('Středa'), text.indexOf('Čtvrtek',from)).trim();
+					dailyMenu = text.substring(from = smallText.indexOf('středa'), smallText.indexOf('čtvrtek',from)).trim();
 					break;
                 case 4:
-					dailyMenu = text.substring(from = text.indexOf('Čtvrtek'), text.indexOf('Pátek',from)).trim();
+					dailyMenu = text.substring(from = smallText.indexOf('čtvrtek'), smallText.indexOf('pátek',from)).trim();
 					break;
                 case 5:
-					dailyMenu = text.substring(from = text.indexOf('Pátek'), text.indexOf('Restaurace',from)).trim();
+					dailyMenu = text.substring(from = smallText.indexOf('pátek'), smallText.indexOf('restaurace',from)).trim();
 					break;
                 default:
                     return "Dneska se nevaří";
             }
 
-            return dailyMenu.substring(0, dailyMenu.indexOf('1.')).trim() + "\n\n1. " + dailyMenu.substring(dailyMenu.indexOf('1.') + 2, dailyMenu.indexOf('2.')).trim() + "\n2. " + dailyMenu.substring(dailyMenu.indexOf('2.') + 2, dailyMenu.indexOf('3.')).trim() + "\n3. " + dailyMenu.substring(dailyMenu.indexOf('3.') + 2).trim();
+            return dailyMenu;
         };
         break;
 
