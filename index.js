@@ -160,6 +160,45 @@ switch (ops.restaurant) {
         };
         break;
 
+	case 'tasteOfIndia':
+		url = 'https://www.taste-of-india.cz/';
+		parse = function ($) {
+			var date = moment().day();
+			var ul = $('ul.daily-menu li');
+			var text = '';
+			var day = 'Pondělí';
+
+			switch (date) {
+				case 1:
+					day = 'Pondělí';
+					break;
+				case 2:
+					day = 'Úterý';
+					break;
+				case 3:
+					day = 'Středa';
+					break;
+				case 4:
+					day = 'Čtvrtek';
+					break;
+				case 5:
+					day = 'Pátek';
+					break;
+				default:
+					return "Dneska se nevaří";
+			}
+
+			ul.each(function () {
+				if ($(this).text().trim().includes(day,0)) {
+					text = text + $(this).text().trim();
+				}
+			});
+
+			return text.replace(/(\d{1,2}[.]{1}\s?\d{1,2}[.]{1})/gi, '$1\n').replace(/Kč\s*/gi, 'Kč\n');
+
+		};
+		break;
+
     default:
         console.log('neznámá restaurace');
         process.exit();
