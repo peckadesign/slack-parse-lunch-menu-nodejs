@@ -203,9 +203,13 @@ switch (ops.restaurant) {
 		url = 'http://www.lacorrida.cz/zabovresky/';
 		parse = function ($) {
 			text = '';
-
-			$('#tabs-' + moment().day()).find('.menu-con').text().trim().split('\n').map(function(e) { text += e.trim().replace(/(\d+,-)/gi, ' $1') + '\n'; });
-
+			
+			$('#tabs-' + moment().day()).find('.menu-con').text().trim().split('\n').map(function (e) {
+				if (e.trim() != '') {
+					text += e.trim().replace(/(\d+,-)/gi, ' $1') + '\n';
+				}
+			});
+			
 			return text;
 
 		};
