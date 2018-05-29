@@ -204,9 +204,7 @@ switch (ops.restaurant) {
 		parse = function ($) {
 			text = '';
 
-			$.each($.map($('.ui-tabs-panel:visible').find('.menu-con').text().split('\n'), $.trim), function (i, l) {
-				text += l.replace(/(\d+,-)/gi, ' $1') + "\n";
-			});
+			$('#tabs-' + moment().day()).find('.menu-con').text().trim().split('\n').map(function(e) { text += e.trim().replace(/(\d+,-)/gi, ' $1') + '\n'; });
 
 			return text;
 
