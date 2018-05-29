@@ -198,6 +198,20 @@ switch (ops.restaurant) {
 
 		};
 		break;
+		
+	case 'corrida':
+		url = 'http://www.lacorrida.cz/zabovresky/';
+		parse = function ($) {
+			text = '';
+
+			$.each($.map($('.ui-tabs-panel:visible').find('.menu-con').text().split('\n'), $.trim), function (i, l) {
+				text += l.replace(/(\d+,-)/gi, ' $1') + "\n";
+			});
+
+			return text;
+
+		};
+		break;
 
     default:
         console.log('neznámá restaurace');
