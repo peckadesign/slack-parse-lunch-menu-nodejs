@@ -4,3 +4,5 @@
 55 10 * * 1,2,3,4,5 node /home/ubuntu/slack/index --restaurant=ocean --url="https://hooks.slack.com/services/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" 2>&1 >> /home/ubuntu/slack/index.log
 38 10 * * 1,2,3,4,5 node /home/ubuntu/slack/index --restaurant=napurkynce --url="https://hooks.slack.com/services/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" 2>&1 >> /home/ubuntu/slack/index.log
 38 10 * * 1,2,3,4,5 node /home/ubuntu/slack/index --restaurant=tasteOfIndia --url="https://hooks.slack.com/services/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" 2>&1 >> /home/ubuntu/slack/index.log
+30 10 * * 1-5      node /var/www/slack-parse-lunch-menu-nodejs/index --restaurant=corrida --url="https://hooks.slack.com/services/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" &>> /dev/null
+30 10 * * 1-5      node /var/www/slack-parse-lunch-menu-nodejs/index --restaurant=liquid --url="https://hooks.slack.com/services/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" &>> /dev/nulll
