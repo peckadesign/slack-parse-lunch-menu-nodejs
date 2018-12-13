@@ -215,6 +215,31 @@ switch (ops.restaurant) {
 		};
 		break;
 
+    case 'liquid':
+		url = 'http://www.liquidbread.cz/liquidbread/liquidbread/mainmenu/daily-menu/';
+		parse = function ($) {
+            var days = ["PONDĚLÍ", "ÚTERÝ", "STŘEDA", "ČTVRTEK", "PÁTEK"];
+            var actualDayNumber = moment().day();
+
+            var text = $('pre').first().text();
+            
+            var start = text.indexOf(days[actualDayNumber - 1]);
+            var end = null;
+
+            if (actualDayNumber == 5) {
+                end = text.length;
+            } else {
+                end = text.indexOf(days[actualDayNumber]);
+            }
+			
+			text = text.substring(start, end).replace(/(a\)|b\)|c\)|Dezert)/g, "\n$1");
+			
+			return text;
+
+		};
+		break;
+
+
     default:
         console.log('neznámá restaurace');
         process.exit();
