@@ -221,7 +221,7 @@ switch (ops.restaurant) {
             var days = ["PONDĚLÍ", "ÚTERÝ", "STŘEDA", "ČTVRTEK", "PÁTEK"];
             var actualDayNumber = moment().day();
 
-            var text = $('pre').first().text();
+			var text = $('#content').first().text();
             
             var start = text.indexOf(days[actualDayNumber - 1]);
             var end = null;
