@@ -82,15 +82,15 @@ switch (ops.restaurant) {
 
 			switch (date) {
 				case 1:
-					return text.substring(from = text.indexOf('PONDĚLÍ'), text.indexOf('ÚTERÝ',from)).replace(/([a-z]{1}\){1}\s{1})/g,'\n$1');
+					return text.substring(from = text.indexOf('Pondělí'), text.indexOf('Úterý',from)).trim();
 				case 2:
-					return text.substring(from = text.indexOf('ÚTERÝ'), text.indexOf('STŘEDA',from)).replace(/([a-z]{1}\){1}\s{1})/g,'\n$1');
+					return text.substring(from = text.indexOf('Úterý'), text.indexOf('Středa', from)).trim();
 				case 3:
-					return text.substring(from = text.indexOf('STŘEDA'), text.indexOf('ČTVRTEK',from)).replace(/([a-z]{1}\){1}\s{1})/g,'\n$1');
+					return text.substring(from = text.indexOf('Středa'), text.indexOf('Čtvrtek',from)).trim();
 				case 4:
-					return text.substring(from = text.indexOf('ČTVRTEK'), text.indexOf('PÁTEK',from)).replace(/([a-z]{1}\){1}\s{1})/g,'\n$1');
+					return text.substring(from = text.indexOf('Čtvrtek'), text.indexOf('Pátek',from)).trim();
 				case 5:
-					return text.substring(from = text.indexOf('PÁTEK'), text.indexOf('Akce',from)).replace(/([a-z]{1}\){1}\s{1})/g,'\n$1');
+					return text.substring(from = text.indexOf('Pátek'), text.length).trim();
 				default:
 					return "Pizza time";
 			}
