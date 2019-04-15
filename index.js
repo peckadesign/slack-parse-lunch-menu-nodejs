@@ -239,6 +239,29 @@ switch (ops.restaurant) {
 		};
 		break;
 
+	case 'selepova':
+		url = 'https://www.selepova.cz/denni-menu/';
+		parse = function ($) {
+			var date = moment().format("D");
+
+			text = "Dnes je zavřeno";
+
+			var days = $('.content .den');
+			days.each(function(day) {
+				if($(this).find('.cislo').text() == date) {
+					text = $(this).find('.seznam .polevka').text().trim();
+					$(this).find('li').each(function(jidlo) {
+						text += "\n" + (jidlo + 1) + ". " + $(this).text().trim();
+					});
+				}
+			});
+
+			return text;
+		};
+
+		break;
+
+
 
     default:
         console.log('neznámá restaurace');
