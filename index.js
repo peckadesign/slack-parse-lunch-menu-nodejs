@@ -218,7 +218,7 @@ switch (ops.restaurant) {
     case 'liquid':
 		url = 'http://www.liquidbread.cz/liquidbread/liquidbread/mainmenu/daily-menu/';
 		parse = function ($) {
-            var days = ["PONDĚLÍ", "ÚTERÝ", "STŘEDA", "ČTVRTEK", "PÁTEK"];
+            var days = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"];
             var actualDayNumber = moment().day();
 
 			var text = $('#content').first().text();
